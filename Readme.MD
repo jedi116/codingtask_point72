@@ -20,6 +20,8 @@ also dont have enough experince with test so did not add test
 1. After changeing to project directory "fullstack_point72" in terminal(cmd or git bash) , input "npm install" to install all required Packages for backend
 2. After changing to "client-react" directory in terminal(cmd or git bash) ,  input "npm install" to install all required Packages for front end 
 
+#renaming .env file located inside of "client-react"
+1. after downloading all the files rename "deletethistext.env" to ".env"
 
 #How to run the app
 1. After changeing to project directory "fullstack_point72" in terminal(cmd or git bash)  input "npm run dev" to start backend server
