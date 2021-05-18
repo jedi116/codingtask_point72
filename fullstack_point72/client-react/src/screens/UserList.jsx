@@ -8,6 +8,7 @@ const UserList = ({ history }) => {
   const [formData, setFormData] = useState({
       userss :[]
     });
+  const [q,setQ] = useState("");
   
         useEffect(() => {
     loadProfile();
@@ -37,7 +38,14 @@ const UserList = ({ history }) => {
   
 
   
-    const users = formData['userss'];
+    var users = formData['userss'];
+
+    function search(datas){
+        return datas.filter(function(data){
+            return data.name.toLowerCase().indexOf(q) > -1;
+        });
+    }
+    users = search(users);
 
   return (
     <div className='min-h-screen bg-gray-700 text-gray-900 flex justify-center'>
@@ -48,7 +56,14 @@ const UserList = ({ history }) => {
             <h1 className='text-2xl xl:text-3xl font-extrabold'>
                 User List
             </h1>
-             <div >
+
+              <div>
+                  <input className="border-2 border-gray-300 bg-white h-10 px-5 pr-16 rounded-lg text-sm focus:outline-none"
+                  type="search" name="search" placeholder="Search" value={q} onChange = {(e)=>setQ(e.target.value)} />
+                  <button type="submit" class="absolute right-0 top-0 mt-5 mr-4"/>
+              </div>
+
+             <div>
             {users.map((user, index) => (
               <div  key={index} className='w-full px-8 py-4 rounded-lg font-medium bg-gray-100 border border-gray-200 placeholder-gray-500 text-sm focus:outline-none focus:border-gray-400 focus:bg-white mt-5'>
               <h1 className ='text-lg'>{user.role}</h1>
@@ -86,3 +101,4 @@ const UserList = ({ history }) => {
 };
 
 export default UserList;
+
