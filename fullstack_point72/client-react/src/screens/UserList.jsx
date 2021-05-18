@@ -42,7 +42,7 @@ const UserList = ({ history }) => {
 
     function search(datas){
         return datas.filter(function(data){
-            return data.name.toLowerCase().indexOf(q) > -1;
+            return data.name.toLowerCase().indexOf(q) > -1 || data.email.toLowerCase().indexOf(q) > -1  || data.country.toLowerCase().indexOf(q) > -1  ||data.age.toLowerCase().indexOf(q) > -1;
         });
     }
     users = search(users);
@@ -101,4 +101,5 @@ const UserList = ({ history }) => {
 };
 
 export default UserList;
+
 
